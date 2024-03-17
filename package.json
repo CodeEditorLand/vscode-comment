@@ -30,7 +30,7 @@
     "onCommand:extension.addDocComments"
   ],
   "dependencies": {
-    "indent-string": "^2.1.0"
+    "indent-string": "2.1.0"
   },
   "devDependencies": {
     "vscode": "0.10.0"
