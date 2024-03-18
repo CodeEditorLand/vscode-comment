@@ -1,23 +1,33 @@
 {
   "name": "addDocComments",
   "displayName": "Add jsdoc comments",
-  "version": "0.0.8",
   "description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
-  "homepage": "https://github.com/Microsoft/vscode-comment/blob/master/README.md",
+  "icon": "images/comment_logo.svg",
+  "galleryBanner": {
+    "color": "#5c2d91",
+    "theme": "dark"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/Microsoft/vscode-comment/issues"
   },
+  "homepage": "https://github.com/Microsoft/vscode-comment/blob/master/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/Microsoft/vscode-comment.git"
   },
-  "license": "SEE LICENSE IN LICENSE.md",
+  "categories": [
+    "Other"
+  ],
+  "version": "0.0.8",
   "publisher": "stevencl",
-  "main": "./out/extension",
-  "scripts": {
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile"
+  "engines": {
+    "vscode": "0.10.x"
   },
+  "main": "./out/extension",
+  "activationEvents": [
+    "onCommand:extension.addDocComments"
+  ],
   "contributes": {
     "commands": [
       {
@@ -26,18 +36,14 @@
       }
     ]
   },
-  "activationEvents": [
-    "onCommand:extension.addDocComments"
-  ],
-  "dependencies": {
-    "indent-string": "2.1.0"
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
   },
   "devDependencies": {
     "vscode": "0.10.0"
   },
-  "icon": "images/comment_logo.svg",
-  "galleryBanner": {
-    "color": "#5c2d91",
-    "theme": "dark"
+  "dependencies": {
+    "indent-string": "^2.1.0"
   }
 }
