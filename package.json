@@ -44,6 +44,6 @@
     "vscode": "0.10.0"
   },
   "dependencies": {
-    "indent-string": "^2.1.0"
+    "indent-string": "5.0.0"
   }
 }
