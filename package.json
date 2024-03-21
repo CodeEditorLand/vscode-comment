@@ -40,7 +40,7 @@
 		"indent-string": "5.0.0"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "latest",
+		"typescript-esbuild": "0.4.5",
 		"vscode": "0.10.0"
 	},
 	"publishConfig": {
