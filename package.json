@@ -1,29 +1,14 @@
 {
-	"name": "addDocComments",
-	"displayName": "Add jsdoc comments",
-	"version": "0.0.1",
-	"private": false,
-	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
-	"bugs": {
-		"url": "https://github.com/CodeEditorLand/Foundation/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
+	"activationEvents": [
+		"onCommand:extension.addDocComments"
+	],
 	"author": {
-		"name": "Playform",
 		"email": "Hello@Playform.Cloud",
+		"name": "Playform",
 		"url": "https://playform.cloud"
 	},
-	"type": "module",
-	"main": "./out/extension",
-	"scripts": {
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"vscode:prepublish": "node ./node_modules/vscode/bin/compile"
+	"bugs": {
+		"url": "https://github.com/CodeEditorLand/Foundation/issues"
 	},
 	"contributes": {
 		"commands": [
@@ -33,22 +18,37 @@
 			}
 		]
 	},
-	"activationEvents": [
-		"onCommand:extension.addDocComments"
-	],
 	"dependencies": {
 		"indent-string": "5.0.0"
 	},
+	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
 	"devDependencies": {
-		"typescript-esbuild": "0.4.5",
+		"typescript-esbuild": "",
 		"vscode": "0.10.0"
 	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"icon": "images/comment_logo.svg",
+	"displayName": "Add jsdoc comments",
 	"galleryBanner": {
 		"color": "#5c2d91",
 		"theme": "dark"
-	}
+	},
+	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"icon": "images/comment_logo.svg",
+	"license": "SEE LICENSE IN LICENSE",
+	"main": "./out/extension",
+	"name": "addDocComments",
+	"private": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
+	},
+	"scripts": {
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile"
+	},
+	"type": "module",
+	"version": "0.0.1"
 }
