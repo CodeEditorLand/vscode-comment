@@ -1,49 +1,57 @@
 {
-  "name": "addDocComments",
-  "displayName": "Add jsdoc comments",
-  "description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
-  "icon": "images/comment_logo.svg",
-  "galleryBanner": {
-    "color": "#5c2d91",
-    "theme": "dark"
-  },
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/Microsoft/vscode-comment/issues"
-  },
-  "homepage": "https://github.com/Microsoft/vscode-comment/blob/master/README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Microsoft/vscode-comment.git"
-  },
-  "categories": [
-    "Other"
-  ],
-  "version": "0.0.8",
-  "publisher": "stevencl",
-  "engines": {
-    "vscode": "0.10.x"
-  },
-  "main": "./out/extension",
-  "activationEvents": [
-    "onCommand:extension.addDocComments"
-  ],
-  "contributes": {
-    "commands": [
-      {
-        "command": "extension.addDocComments",
-        "title": "Add Doc Comments"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-  },
-  "devDependencies": {
-    "vscode": "0.10.0"
-  },
-  "dependencies": {
-    "indent-string": "^2.1.0"
-  }
+	"name": "addDocComments",
+	"displayName": "Add jsdoc comments",
+	"version": "0.0.1",
+	"private": false,
+	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
+	"keywords": [
+		"land"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandComment#readme",
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandComment/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/LandComment.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
+	},
+	"type": "module",
+	"main": "./out/extension",
+	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"prepublishOnly": "Build 'Source/**/*.ts'"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.addDocComments",
+				"title": "Add Doc Comments"
+			}
+		]
+	},
+	"activationEvents": [
+		"onCommand:extension.addDocComments"
+	],
+	"dependencies": {
+		"indent-string": "^2.1.0"
+	},
+	"devDependencies": {
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"icon": "images/comment_logo.svg",
+	"galleryBanner": {
+		"color": "#5c2d91",
+		"theme": "dark"
+	}
 }
