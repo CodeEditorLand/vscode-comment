@@ -40,7 +40,7 @@
 		"onCommand:extension.addDocComments"
 	],
 	"dependencies": {
-		"indent-string": "^2.1.0"
+		"indent-string": "5.0.0"
 	},
 	"devDependencies": {
 		"@playform/build": "0.0.7",
