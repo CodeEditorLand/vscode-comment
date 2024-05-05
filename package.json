@@ -4,26 +4,29 @@
 	"version": "0.0.1",
 	"private": false,
 	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"keywords": [
+		"land"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandComment#readme",
 	"bugs": {
-		"url": "https://github.com/CodeEditorLand/Foundation/issues"
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandComment/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
+		"url": "git+HTTPS://github.com/CodeEditorLand/LandComment.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
-		"name": "Playform",
-		"email": "Hello@Playform.Cloud",
-		"url": "https://playform.cloud"
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
 	},
 	"type": "module",
 	"main": "./out/extension",
 	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
 		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"vscode:prepublish": "node ./node_modules/vscode/bin/compile"
+		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"contributes": {
 		"commands": [
@@ -40,8 +43,8 @@
 		"indent-string": "5.0.0"
 	},
 	"devDependencies": {
-		"typescript-esbuild": "0.4.5",
-		"vscode": "0.10.0"
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6"
 	},
 	"publishConfig": {
 		"access": "public"
