@@ -1,11 +1,7 @@
 {
-	"name": "addDocComments",
-	"displayName": "Add jsdoc comments",
-	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
-	"main": "./out/extension",
-	"scripts": {
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-	},
+	"activationEvents": [
+		"onCommand:extension.addDocComments"
+	],
 	"contributes": {
 		"commands": [
 			{
@@ -14,16 +10,20 @@
 			}
 		]
 	},
-	"activationEvents": [
-		"onCommand:extension.addDocComments"
-	],
 	"dependencies": {
 		"indent-string": "5.0.0"
 	},
+	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
 	"devDependencies": {},
-	"icon": "images/comment_logo.svg",
+	"displayName": "Add jsdoc comments",
 	"galleryBanner": {
 		"color": "#5c2d91",
 		"theme": "dark"
+	},
+	"icon": "images/comment_logo.svg",
+	"main": "./out/extension",
+	"name": "addDocComments",
+	"scripts": {
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
 	}
 }
