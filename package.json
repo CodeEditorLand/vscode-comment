@@ -11,7 +11,7 @@
 		]
 	},
 	"dependencies": {
-		"indent-string": "^2.1.0"
+		"indent-string": "2.1.0"
 	},
 	"description": "Adds jsdoc @param and @return tags for selected function signatures in JS and TS",
 	"devDependencies": {},
