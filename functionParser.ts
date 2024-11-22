@@ -23,10 +23,12 @@ export function getParameterText(
 			textToInsert = textToInsert + element.paramName + "\n" + " *";
 		}
 	});
+
 	if (returnText != "") {
 		textToInsert = textToInsert + " @returns " + returnText + "\n" + " *";
 	}
 	textToInsert = textToInsert + "/";
+
 	return textToInsert;
 }
 
@@ -35,12 +37,16 @@ export function getReturns(text: string): string {
 	text = text.replace(/\s/g, "");
 
 	var lastIndex = text.lastIndexOf(":");
+
 	var lastBrace = text.lastIndexOf(")");
+
 	if (lastIndex > lastBrace) {
 		//we have a return type
 		//read to end of string
 		var index = lastIndex + 1;
+
 		var splicedText = text.slice(index, text.length);
+
 		returnText = splicedText.match(/[a-zA-Z][a-zA-Z0-9$_]*/).toString();
 		// while (index < text.length) && (text..charAt(index).al.m
 		// 	returnText = returnText + text.charAt(index);
@@ -52,13 +58,16 @@ export function getReturns(text: string): string {
 
 export function stripComments(text: string): string {
 	var uncommentedText: string = "";
+
 	var index = 0;
+
 	while (index != text.length) {
 		if (text.charAt(index) == "/" && text.charAt(index + 1) == "*") {
 			//parse comment
 			if (index + 2 != text.length) {
 				//Check for the corner case that the selected text contains a /* right at the end
 				index = index + 2;
+
 				while (
 					text.charAt(index) != "*" &&
 					text.charAt(index + 1) != "/"
@@ -92,9 +101,11 @@ export function getParameters(text: string): paramDeclaration[] {
 		//count the number of matching opening and closing braces. Keep parsing until 0
 		var numBraces = 1;
 		index++;
+
 		while (numBraces != 0 && index != text.length) {
 			//Now we are at a non whitespace character. Assume it is the parameter name
 			var name: string = "";
+
 			while (
 				text.charAt(index) != ":" &&
 				text.charAt(index) != "," &&
@@ -107,6 +118,7 @@ export function getParameters(text: string): paramDeclaration[] {
 			if (index < text.length) {
 				//Now we are at a : or a ',', skip then read until a , to get the param type
 				var type: string = "";
+
 				if (text.charAt(index) == ":") {
 					index++;
 					//we have a type to process
@@ -160,6 +172,7 @@ export function getParameters(text: string): paramDeclaration[] {
 					type = "";
 				}
 				paramList.push(new paramDeclaration(name, type));
+
 				if (index < text.length) {
 					index++;
 				}
