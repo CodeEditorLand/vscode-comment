@@ -4,6 +4,7 @@ export class paramDeclaration {
 		public paramType,
 	) {
 		this.paramName = paramName;
+
 		this.paramType = paramType;
 	}
 }
@@ -13,13 +14,16 @@ export function getParameterText(
 	returnText: string,
 ): string {
 	var textToInsert: string = "";
+
 	textToInsert = textToInsert + "/**\n *";
+
 	paramList.forEach((element) => {
 		if (element.paramName != "") {
 			textToInsert = textToInsert + " @param  ";
 			//if (element.paramType != '') {
 			textToInsert = textToInsert + "{" + element.paramType + "}" + " ";
 			//}
+
 			textToInsert = textToInsert + element.paramName + "\n" + " *";
 		}
 	});
@@ -27,6 +31,7 @@ export function getParameterText(
 	if (returnText != "") {
 		textToInsert = textToInsert + " @returns " + returnText + "\n" + " *";
 	}
+
 	textToInsert = textToInsert + "/";
 
 	return textToInsert;
@@ -34,6 +39,7 @@ export function getParameterText(
 
 export function getReturns(text: string): string {
 	var returnText: string = "";
+
 	text = text.replace(/\s/g, "");
 
 	var lastIndex = text.lastIndexOf(":");
@@ -53,6 +59,7 @@ export function getReturns(text: string): string {
 		// 	index++;
 		// }
 	}
+
 	return returnText;
 }
 
@@ -75,6 +82,7 @@ export function stripComments(text: string): string {
 					index++;
 				}
 			}
+
 			index = index + 2;
 		} else if (text.charAt(index) == "/" && text.charAt(index + 1) == "/") {
 			//read to end of line
@@ -83,9 +91,11 @@ export function stripComments(text: string): string {
 			}
 		} else {
 			uncommentedText = uncommentedText + text.charAt(index);
+
 			index++;
 		}
 	}
+
 	return uncommentedText;
 }
 
@@ -94,12 +104,14 @@ export function getParameters(text: string): paramDeclaration[] {
 	var paramList: paramDeclaration[] = [];
 	//Start by looking for the function name declaration
 	var index = 0;
+
 	text = text.replace(/\s/g, "");
 	//Now we are at the first non whitespace character
 	//if it is not a '(' then this is not a valid function declaration
 	if (text.charAt(index) == "(") {
 		//count the number of matching opening and closing braces. Keep parsing until 0
 		var numBraces = 1;
+
 		index++;
 
 		while (numBraces != 0 && index != text.length) {
@@ -113,8 +125,10 @@ export function getParameters(text: string): paramDeclaration[] {
 				index < text.length
 			) {
 				name = name + text.charAt(index);
+
 				index++;
 			}
+
 			if (index < text.length) {
 				//Now we are at a : or a ',', skip then read until a , to get the param type
 				var type: string = "";
@@ -124,8 +138,11 @@ export function getParameters(text: string): paramDeclaration[] {
 					//we have a type to process
 					if (text.charAt(index) == "(") {
 						var startNumBraces = numBraces;
+
 						numBraces++;
+
 						type = type + text.charAt(index);
+
 						index++;
 						//we have encountered a function type
 						//read all the way through until the numBraces = startNumBraces
@@ -138,9 +155,12 @@ export function getParameters(text: string): paramDeclaration[] {
 							} else if (text.charAt(index) == "(") {
 								numBraces++;
 							}
+
 							type = type + text.charAt(index);
+
 							index++;
 						}
+
 						if (index < text.length) {
 							//Now read up to either a , or a )
 							while (
@@ -148,8 +168,10 @@ export function getParameters(text: string): paramDeclaration[] {
 								text.charAt(index) != ")"
 							) {
 								type = type + text.charAt(index);
+
 								index++;
 							}
+
 							if (text.charAt(index) == ")") {
 								numBraces--;
 							}
@@ -161,8 +183,10 @@ export function getParameters(text: string): paramDeclaration[] {
 							index != text.length
 						) {
 							type = type + text.charAt(index);
+
 							index++;
 						}
+
 						if (text.charAt(index) == ")") {
 							numBraces--;
 						}
@@ -171,6 +195,7 @@ export function getParameters(text: string): paramDeclaration[] {
 					//no type is specified
 					type = "";
 				}
+
 				paramList.push(new paramDeclaration(name, type));
 
 				if (index < text.length) {

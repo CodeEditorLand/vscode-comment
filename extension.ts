@@ -40,6 +40,7 @@ export function activate(ctx: vscode.ExtensionContext) {
 			// }
 
 			var firstBraceIndex = selectedText.indexOf("(");
+
 			selectedText = selectedText.slice(firstBraceIndex);
 
 			selectedText = functionParser.stripComments(selectedText);
@@ -54,12 +55,14 @@ export function activate(ctx: vscode.ExtensionContext) {
 					params,
 					returnText,
 				);
+
 				vscode.window.activeTextEditor
 					.edit((editBuilder: vscode.TextEditorEdit) => {
 						if (startLine < 0) {
 							//If the function declaration is on the first line in the editor we need to set startLine to first line
 							//and then add an extra newline at the end of the text to insert
 							startLine = 0;
+
 							textToInsert = textToInsert + "\n";
 						}
 						//Check if there is any text on startLine. If there is, add a new line at the end
@@ -72,10 +75,12 @@ export function activate(ctx: vscode.ExtensionContext) {
 
 						if (lastCharIndex > 0 && startLine != 0) {
 							pos = new vscode.Position(startLine, lastCharIndex);
+
 							textToInsert = "\n" + textToInsert;
 						} else {
 							pos = new vscode.Position(startLine, 0);
 						}
+
 						var line: string =
 							vscode.window.activeTextEditor.document.lineAt(
 								selection.start.line,
@@ -100,11 +105,13 @@ export function activate(ctx: vscode.ExtensionContext) {
 								stringToIndent = stringToIndent + " ";
 							}
 						}
+
 						textToInsert = indentString(
 							textToInsert,
 							stringToIndent,
 							1,
 						);
+
 						editBuilder.insert(pos, textToInsert);
 					})
 					.then(() => {});
